@@ -2,4 +2,8 @@ module github.com/g5becks/easyapi
 
 go 1.15
 
-require github.com/varlink/go v0.4.0
+require (
+	github.com/mitchellh/go-homedir v1.1.0
+	github.com/spf13/cobra v1.0.0
+	github.com/spf13/viper v1.7.1
+)
