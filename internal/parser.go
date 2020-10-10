@@ -8,7 +8,6 @@ import (
 
 // Valid TypeKind values.
 
-
 type parser struct {
 	input       string
 	position    int
@@ -41,7 +40,6 @@ func (p *parser) advance() bool {
 
 		} else if char == ' ' || char == '\t' || char == '\r' {
 			// ignore
-
 		} else if char == '#' {
 			p.next()
 			start := p.position
@@ -253,10 +251,8 @@ func (p *parser) readType() *Type {
 			case "object":
 				t = &Type{Kind: TypeObject}
 			}
-
 		} else if name := p.readTypeName(); name != "" {
 			t = &Type{Kind: TypeAlias, Alias: name}
-
 		} else if t = p.readStructType(); t == nil {
 			return nil
 		}

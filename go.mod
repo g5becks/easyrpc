@@ -1,4 +1,4 @@
-module github.com/g5becks/easyapi
+module github.com/g5becks/easyrpc
 
 go 1.15
 

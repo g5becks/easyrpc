@@ -40,7 +40,23 @@ func (t TypeKind) String() string {
 	case TypeAlias:
 		return "alias"
 	}
+
 	return ""
+}
+
+func KindFromString(kind string) TypeKind {
+	switch kind {
+	case "bool":
+		return TypeBool
+	case "int":
+		return TypeInt
+	case "float":
+		return TypeFloat
+	case "string":
+		return TypeString
+	case "array":
+		return TypeArray
+	}
 }
 
 // Type represents a varlink type. Types are method input and output parameters,
@@ -50,6 +66,10 @@ type Type struct {
 	ElementType *Type       `json:"type"`
 	Alias       string      `json:"alias"`
 	Fields      []TypeField `json:"fields"`
+}
+
+type TypeJson struct {
+	Kind string
 }
 
 // TypeField is a named member of a TypeStruct.
